@@ -44,11 +44,30 @@ return require('packer').startup(function(use)
 		}
 	}
 
+	-- Treesitter
 	use({"nvim-treesitter/nvim-treesitter", run = ":TSUpdate"})
 	use("nvim-treesitter/playground")
+
+	-- Autopairs, python indent
 	use {
 		"windwp/nvim-autopairs",
 		config = function() require("nvim-autopairs").setup {} end
 	}
+
 	use("Vimjas/vim-python-pep8-indent")
+
+	-- statusline, indent guide lines
+	use({
+		"nvim-lualine/lualine.nvim", 
+		requires = {"kyazdani42/nvim-web-devicons", opt = true }
+	})
+
+	use "lukas-reineke/indent-blankline.nvim"
+	use {
+		'nvim-tree/nvim-tree.lua',
+		requires = {
+			'nvim-tree/nvim-web-devicons', -- optional, for file icons
+		},
+		tag = 'nightly' -- optional, updated every week. (see issue #1193)
+	}
 end)
