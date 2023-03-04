@@ -13,11 +13,12 @@ return require('packer').startup(function(use)
 		requires = { {'nvim-lua/plenary.nvim'} }
 	}
 
-	use({
-		'rose-pine/neovim',
-		as = 'rose-pine',
-		config = function()
-			vim.cmd('colorscheme rose-pine')
+	use ({
+		'projekt0n/github-nvim-theme', tag = 'v0.0.7',
+		config = function ()
+			require('github-theme').setup({
+				theme_style = "dark"
+			})
 		end
 	})
 
